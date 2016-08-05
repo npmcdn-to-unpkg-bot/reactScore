@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "typings install",
     "build": "webpack",
     "server": "node build/server/server"
   },
