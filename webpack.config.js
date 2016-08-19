@@ -1,19 +1,24 @@
-const webpack = require('webpack'),
-    path = require('path');
-
+const path = require('path'),
+    nodeExternals = require('webpack-node-externals');
 const SRC_DIR = path.resolve(__dirname, 'src'),
     SERVER_SRC_DIR = path.join(SRC_DIR, 'server'),
     BUILD_BIR = path.resolve(__dirname, 'build'),
     SERVER_BUILD_DIR = path.join(BUILD_BIR, 'server');
 
-let serverConfig = {
+var serverConfig = {
   target: 'node',
-  entry: SERVER_SRC_DIR + '/server.ts',
+  entry: path.join(SERVER_SRC_DIR, 'server.ts'),
+  exclude: [
+    'node_modules'
+  ],
   output: {
-    path: SERVER_BUILD_DIR,
-    filename: 'server.js'
+    filename: path.join(SERVER_BUILD_DIR, 'server.js')
   },
-  modules: {
+  resolve: {
+    extensions: ['', '.ts', '.js']
+  },
+  externals: [nodeExternals()],
+  module: {
     loaders: [{test: /\.ts$/, loaders: ['ts-loader']}]
   }
 };
