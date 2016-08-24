@@ -1,17 +1,8 @@
-/// <reference path="../../typings/index.d.ts" />
-
 import * as express from 'express';
+import {join} from 'path';
 
-const app: express.Application = express(),
-        router = express.Router();
+const app: express.Application = express();
 
-router.get('/', (req, res) => {
-     res.send('test');
-});
-
-app.get('/', function () {
-
-});
-app.use('/', router);
+app.use('/', express.static(join(__dirname, '../app/')));
 
 app.listen(3000);
