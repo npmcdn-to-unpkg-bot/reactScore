@@ -9,13 +9,15 @@ const SRC_DIR = path.resolve(__dirname, 'src'),
 
 var serverConfig = {
   target: 'node',
+  devtool: 'source-map',
   entry: path.join(SERVER_SRC_DIR, 'server.ts'),
   exclude: [
     'node_modules'
   ],
   output: {
     path: SERVER_BUILD_DIR,
-    filename: 'server.js'
+    filename: 'server.js',
+    devtoolModuleFilenameTemplate: "[absolute-resource-path]" 
   },
   resolve: {
     extensions: ['', '.ts', '.js']
