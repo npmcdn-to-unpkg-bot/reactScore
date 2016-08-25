@@ -44,14 +44,10 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/// <reference path="../../typings/index.d.ts" />
 	"use strict";
 	var express = __webpack_require__(1);
-	var app = express(), router = express.Router();
-	router.get('/', function (req, res) {
-	    res.send('test');
-	});
-	app.use('/', router);
+	var app = express();
+	app.use('/', express.static('./build/app'));
 	app.listen(3000);
 
 

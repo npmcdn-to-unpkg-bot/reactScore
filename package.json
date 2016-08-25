@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jasonjeffrey/reactScore#readme",
   "devDependencies": {
+    "html-webpack-plugin": "^2.22.0",
     "ts-loader": "^0.8.2",
     "typings": "^1.3.2",
     "webpack": "^1.13.1",
